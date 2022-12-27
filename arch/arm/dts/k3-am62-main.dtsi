@@ -43,6 +43,7 @@
 	};
 
 	main_conf: syscon@100000 {
+		bootph-pre-ram;
 		compatible = "syscon", "simple-mfd";
 		reg = <0x00 0x00100000 0x00 0x20000>;
 		#address-cells = <1>;
@@ -53,6 +54,12 @@
 			compatible = "ti,am654-phy-gmii-sel";
 			reg = <0x4044 0x8>;
 			#phy-cells = <1>;
+		};
+
+		dss_oldi_io_ctrl: dss-oldi-io-ctrl@8600 {
+			bootph-pre-ram;
+			compatible = "syscon";
+			reg = <0x8600 0x200>;
 		};
 
 		epwm_tbclk: clock@4130 {

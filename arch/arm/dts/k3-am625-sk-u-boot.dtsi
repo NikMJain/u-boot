@@ -129,3 +129,7 @@
 &cpsw_port2 {
 	status = "disabled";
 };
+
+&dss{
+	bootph-pre-ram;
+};
