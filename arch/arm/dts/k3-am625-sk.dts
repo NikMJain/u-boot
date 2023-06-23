@@ -168,7 +168,7 @@
 		width-mm = <217>;
 		height-mm = <136>;
 		data-mapping = "vesa-24";
-		panel-timings {
+		panel-timing {
 				bootph-pre-ram;
 				clock-frequency = <150274>;
 				hactive = <1920>;
