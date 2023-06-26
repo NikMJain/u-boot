@@ -180,6 +180,7 @@ int splash_display(void)
 	else
 		return -ENOSYS;
 
+	printf("done \n");
 	/* Skip banner output on video console if the logo is not at 0,0 */
 	if (x || y)
 		goto end;

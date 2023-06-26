@@ -3,9 +3,9 @@
  * AM62X specific device platform data
  *
  * This file is auto generated. Please do not hand edit and report any issues
- * to Dave Gerlach <d-gerlach@ti.com>.
+ * to Bryan Brattlof <bb@ti.com>.
  *
- * Copyright (C) 2020-2022 Texas Instruments Incorporated - https://www.ti.com/
+ * Copyright (C) 2020-2023 Texas Instruments Incorporated - https://www.ti.com/
  */
 
 #include "k3-dev.h"
@@ -17,10 +17,10 @@ static struct ti_psc soc_psc_list[] = {
 
 static struct ti_pd soc_pd_list[] = {
 	[0] = PSC_PD(0, &soc_psc_list[1], NULL),
-	[1] = PSC_PD(2, &soc_psc_list[1], &soc_pd_list[0]),
-	[2] = PSC_PD(3, &soc_psc_list[1], &soc_pd_list[0]),
-	[3] = PSC_PD(4, &soc_psc_list[1], &soc_pd_list[2]),
-	[4] = PSC_PD(5, &soc_psc_list[1], &soc_pd_list[2]),
+	[1] = PSC_PD(3, &soc_psc_list[1], &soc_pd_list[0]),
+	[2] = PSC_PD(4, &soc_psc_list[1], &soc_pd_list[1]),
+	[3] = PSC_PD(5, &soc_psc_list[1], &soc_pd_list[1]),
+	[4] = PSC_PD(9, &soc_psc_list[1], &soc_pd_list[0]),
 };
 
 static struct ti_lpsc soc_lpsc_list[] = {
@@ -36,10 +36,10 @@ static struct ti_lpsc soc_lpsc_list[] = {
 	[9] = PSC_LPSC(24, &soc_psc_list[1], &soc_pd_list[0], &soc_lpsc_list[11]),
 	[10] = PSC_LPSC(28, &soc_psc_list[1], &soc_pd_list[0], &soc_lpsc_list[11]),
 	[11] = PSC_LPSC(34, &soc_psc_list[1], &soc_pd_list[0], &soc_lpsc_list[11]),
-	[12] = PSC_LPSC(41, &soc_psc_list[1], &soc_pd_list[1], &soc_lpsc_list[11]),
-	[13] = PSC_LPSC(42, &soc_psc_list[1], &soc_pd_list[2], &soc_lpsc_list[11]),
-	[14] = PSC_LPSC(45, &soc_psc_list[1], &soc_pd_list[3], &soc_lpsc_list[13]),
-	[15] = PSC_LPSC(46, &soc_psc_list[1], &soc_pd_list[4], &soc_lpsc_list[13]),
+	[12] = PSC_LPSC(42, &soc_psc_list[1], &soc_pd_list[1], &soc_lpsc_list[11]),
+	[13] = PSC_LPSC(45, &soc_psc_list[1], &soc_pd_list[2], &soc_lpsc_list[12]),
+	[14] = PSC_LPSC(46, &soc_psc_list[1], &soc_pd_list[3], &soc_lpsc_list[12]),
+	[15] = PSC_LPSC(51, &soc_psc_list[1], &soc_pd_list[4], &soc_lpsc_list[11]),
 };
 
 static struct ti_dev soc_dev_list[] = {
@@ -60,10 +60,10 @@ static struct ti_dev soc_dev_list[] = {
 	PSC_DEV(75, &soc_lpsc_list[10]),
 	PSC_DEV(102, &soc_lpsc_list[11]),
 	PSC_DEV(146, &soc_lpsc_list[11]),
-	PSC_DEV(13, &soc_lpsc_list[12]),
-	PSC_DEV(166, &soc_lpsc_list[13]),
-	PSC_DEV(135, &soc_lpsc_list[14]),
-	PSC_DEV(136, &soc_lpsc_list[15]),
+	PSC_DEV(166, &soc_lpsc_list[12]),
+	PSC_DEV(135, &soc_lpsc_list[13]),
+	PSC_DEV(136, &soc_lpsc_list[14]),
+	PSC_DEV(186, &soc_lpsc_list[15]),
 };
 
 const struct ti_k3_pd_platdata am62x_pd_platdata = {
