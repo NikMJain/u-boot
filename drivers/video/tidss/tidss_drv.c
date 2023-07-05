@@ -8,7 +8,7 @@
  * (C) Copyright 2018 Texas Instruments Incorporated - https://www.ti.com/
  * Author: Tomi Valkeinen <tomi.valkeinen@ti.com>
  */
-
+#define DEBUG
 #include <common.h>
 #include <dm.h>
 #include <clk.h>

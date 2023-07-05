@@ -121,6 +121,7 @@ int bmp_display(ulong addr, int x, int y)
 	struct bmp_image *bmp = map_sysmem(addr, 0);
 	void *bmp_alloc_addr = NULL;
 	unsigned long len;
+	bool align = false;
 
 	if (!((bmp->header.signature[0] == 'B') &&
 	      (bmp->header.signature[1] == 'M')))
@@ -132,14 +133,15 @@ int bmp_display(ulong addr, int x, int y)
 	}
 	addr = map_to_sysmem(bmp);
 
-	ret = uclass_first_device_err(UCLASS_VIDEO, &dev);
-	if (!ret) {
-		bool align = false;
-
-		if (x == BMP_ALIGN_CENTER || y == BMP_ALIGN_CENTER)
+	if (x == BMP_ALIGN_CENTER || y == BMP_ALIGN_CENTER)
 			align = true;
 
-		ret = video_bmp_display(dev, addr, x, y, align);
+	video_bmp_display_trial(addr,x,y,align);
+	ret = uclass_first_device_err(UCLASS_VIDEO, &dev);
+	if (!ret) {
+
+		return video_sync(dev, false);
+		// ret = video_bmp_display(dev, addr, x, y, align);
 	}
 
 	if (bmp_alloc_addr)

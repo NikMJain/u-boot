@@ -1185,6 +1185,15 @@ config SPL_HIDE_LOGO_VERSION
       since video starts up after U-Boot has displayed the initial banner.
 
       Enable this option to hide this information.
+
+config SPL_NO_FB_CLEAR
+	bool "Skip framebuffer clear"
+	help
+	  If firmware (whatever loads u-boot) has already put a splash image
+	  on screen, you might want to preserve it until whatever u-boot
+	  loads takes over the screen.  This, for example, can be used to
+	  keep splash image on screen until grub graphical boot menu starts.
+
 endif
 
 endmenu
